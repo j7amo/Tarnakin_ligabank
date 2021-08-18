@@ -1,0 +1,23 @@
+.button {
+  background: #2C36F2;
+  border: none;
+  border-radius: 4px;
+  color: #F6F7FF;
+  font-weight: 500;
+  line-height: 11px;
+  cursor: pointer;
+
+  &--narrow {
+    width: 198px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    font-size: 16px;
+  }
+
+  &--wide {
+    width: 382px;
+    padding-top: 25px;
+    padding-bottom: 24px;
+    font-size: 18px;
+  }
+}
