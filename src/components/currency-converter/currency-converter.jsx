@@ -83,7 +83,7 @@ export default function CurrencyConverter() {
               <div className={styles['converter__currencies-outer-container']}>
                 <label htmlFor='want-currency-amount' className={styles['converter__label']}>Хочу приобрести</label>
                 <div className={styles['converter__currencies-inner-container']}>
-                  <input type='number' id='want-currency-amount' value='1000' className={styles['converter__currency-field']}/>
+                  <input type='number' id='want-currency-amount' value='13.1234' className={styles['converter__currency-field']}/>
                   <select id='want-currency-type'>
                     <option value='RUB'>RUB</option>
                     <option value='USD'>USD</option>

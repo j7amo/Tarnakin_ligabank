@@ -34,15 +34,17 @@
   }
 
   &__currency-field {
+    font-family: 'Roboto', sans-serif;
     font-weight: 500;
     font-size: 24px;
     line-height: 140%;
     color: #000000;
     margin-right: 15px;
     text-align: center;
-    width: 390px;
-    padding-top: 13px;
+    width: 377px;
+    padding-top: 12px;
     padding-bottom: 13px;
+    padding-left: 11px;
     border: 1px solid #1F1E25;
     border-radius: 4px;
     cursor: pointer;
@@ -86,23 +88,24 @@
     position: absolute;
     width: 41px;
     height: 44px;
-    top: 4px;
-    right: 31px;
+    top: 6px;
+    right: 34px;
     background: url('../../assets/img/calendar.svg') no-repeat;
     cursor: pointer;
   }
 
   &__date {
-    font-family: 'Roboto', serif;
+    font-family: 'Roboto', sans-serif;
     font-weight: normal;
     font-size: 24px;
     line-height: 25px;
     color: #000000;
     margin-right: 15px;
     text-align: center;
-    width: 390px;
-    padding-top: 18px;
-    padding-bottom: 15px;
+    width: 335px;
+    padding-top: 20px;
+    padding-bottom: 13px;
+    padding-right: 53px;
     border: 1px solid #1F1E25;
     border-radius: 4px;
     cursor: pointer;
@@ -111,10 +114,11 @@
 
 select {
   appearance: none;
-  background: url("../../assets/img/select-dropdown.svg") no-repeat left 90% top 50%;
+  background: url("../../assets/img/select-dropdown.svg") no-repeat left 85% top 50%;
+  font-family: 'Roboto', sans-serif;
   font-size: 30px;
   font-weight: 400;
-  line-height: 140%;
+  line-height: 40px;
   color: #000000;
   text-align: center;
   width: 120px;
@@ -128,18 +132,18 @@ select {
 
 .history {
   background: #F6F7FF;
-  padding: 40px 69px 39px 70px;
+  padding: 44px 83px 39px 70px;
 
   &__title {
     font-weight: 500;
     font-size: 28px;
     line-height: 140%;
     color: #1F1E25;
-    margin-bottom: 50px;
+    margin-bottom: 51px;
   }
 
   &__list {
-    margin-bottom: 50px;
+    margin-bottom: 48px;
     display: grid;
     grid-template-rows: repeat(5, auto);
     grid-auto-flow: column;
@@ -150,8 +154,8 @@ select {
       position: absolute;
       width: 0;
       height: 289px;
-      left: 50%;
-      top: -40px;
+      left: 50.5%;
+      top: -34px;
       border: 1px solid #C1C2CA;
       box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
     }
