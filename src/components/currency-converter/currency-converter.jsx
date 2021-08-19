@@ -2,6 +2,61 @@ import React from 'react';
 import globalStyles from '../app/app.module.scss';
 import styles from './currency-converter.module.scss';
 import Button from '../button/button.jsx';
+import Calendar from 'react-calendar';
+import HistoryItem from "../history-item/history-item";
+
+const someArray = [
+  {
+    date: '25.11.2020',
+    haveAmount: '1000 RUB',
+    wantAmount: '13,1234 USD',
+  },
+  {
+    date: '25.11.2020',
+    haveAmount: '1000 RUB',
+    wantAmount: '13,1234 USD',
+  },
+  {
+    date: '25.11.2020',
+    haveAmount: '1000 RUB',
+    wantAmount: '13,1234 USD',
+  },
+  {
+    date: '25.11.2020',
+    haveAmount: '1000 RUB',
+    wantAmount: '13,1234 USD',
+  },
+  {
+    date: '25.11.2020',
+    haveAmount: '1000 RUB',
+    wantAmount: '13,1234 USD',
+  },
+  {
+    date: '25.11.2020',
+    haveAmount: '1000 RUB',
+    wantAmount: '13,1234 USD',
+  },
+  {
+    date: '25.11.2020',
+    haveAmount: '1000 RUB',
+    wantAmount: '13,1234 USD',
+  },
+  {
+    date: '25.11.2020',
+    haveAmount: '1000 RUB',
+    wantAmount: '13,1234 USD',
+  },
+  {
+    date: '25.11.2020',
+    haveAmount: '1000 RUB',
+    wantAmount: '13,1234 USD',
+  },
+  {
+    date: '25.11.2020',
+    haveAmount: '1000 RUB',
+    wantAmount: '13,1234 USD',
+  },
+];
 
 export default function CurrencyConverter() {
   return (
@@ -41,11 +96,21 @@ export default function CurrencyConverter() {
               </div>
             </fieldset>
             <div className={styles['converter__date-container']}>
-              <input type='date' id='conversion-date' className={styles['converter__date']} value='01.12.2020'/>
+              <input type='text' id='conversion-date' className={styles['converter__date']} value='1.12.2020'/>
+              <button type='button' className={styles['converter__calendar']}/>
               <label htmlFor='conversion-date' className={globalStyles['visually-hidden']}>Выбрать дату</label>
             </div>
-            <Button />
+            <Button modifier='button--wide'>Сохранить результат</Button>
           </form>
+          <div className={`${styles['converter__history']} ${styles['history']}`}>
+            <h3 className={styles['history__title']}>История конвертации</h3>
+            <ul className={styles['history__list']}>
+              {someArray.map((entry) => (
+                  <HistoryItem {...entry}/>
+              ))}
+            </ul>
+            <Button modifier='button--narrow'>Очистить историю</Button>
+          </div>
         </div>
       </section>
   );

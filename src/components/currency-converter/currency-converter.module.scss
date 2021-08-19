@@ -1,5 +1,6 @@
 .converter {
   padding-top: 60px;
+  padding-bottom: 110px;
 
   &__title {
     font-weight: bold;
@@ -13,6 +14,7 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
+    margin-bottom: 100px;
   }
 
   &__currencies-fieldset {
@@ -76,23 +78,31 @@
 
   &__date-container {
     position: relative;
+  }
 
-    &::after {
-      position: absolute;
-      content: '';
-      width: 41px;
-      height: 44px;
-      background: url('../../assets/img/calendar.svg');
-    }
+  &__calendar {
+    padding: 0;
+    border: none;
+    position: absolute;
+    width: 41px;
+    height: 44px;
+    top: 4px;
+    right: 31px;
+    background: url('../../assets/img/calendar.svg') no-repeat;
+    cursor: pointer;
   }
 
   &__date {
+    font-family: 'Roboto', serif;
+    font-weight: normal;
+    font-size: 24px;
     line-height: 25px;
+    color: #000000;
     margin-right: 15px;
     text-align: center;
     width: 390px;
-    padding-top: 13px;
-    padding-bottom: 13px;
+    padding-top: 18px;
+    padding-bottom: 15px;
     border: 1px solid #1F1E25;
     border-radius: 4px;
     cursor: pointer;
@@ -100,7 +110,10 @@
 }
 
 select {
+  appearance: none;
+  background: url("../../assets/img/select-dropdown.svg") no-repeat left 90% top 50%;
   font-size: 30px;
+  font-weight: 400;
   line-height: 140%;
   color: #000000;
   text-align: center;
@@ -111,4 +124,36 @@ select {
   border: 1px solid #1F1E25;
   border-radius: 4px;
   cursor: pointer;
+}
+
+.history {
+  background: #F6F7FF;
+  padding: 40px 69px 39px 70px;
+
+  &__title {
+    font-weight: 500;
+    font-size: 28px;
+    line-height: 140%;
+    color: #1F1E25;
+    margin-bottom: 50px;
+  }
+
+  &__list {
+    margin-bottom: 50px;
+    display: grid;
+    grid-template-rows: repeat(5, auto);
+    grid-auto-flow: column;
+    position: relative;
+
+    &::after {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 289px;
+      left: 50%;
+      top: -40px;
+      border: 1px solid #C1C2CA;
+      box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+    }
+  }
 }

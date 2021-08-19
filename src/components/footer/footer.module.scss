@@ -1,0 +1,116 @@
+.main-footer {
+  background: #F6F7FF;
+
+  &__inner {
+    display: flex;
+  }
+
+  &__left-col {
+    padding-top: 49px;
+    margin-right: 80px;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 12px;
+    line-height: 140%;
+    color: #707C87;
+
+    a {
+      margin-bottom: 20px;
+    }
+  }
+
+  &__right-col {
+    padding-top: 60px;
+    padding-bottom: 60px;
+    display: flex;
+    align-items: flex-start;
+  }
+
+  &__address {
+    font-style: normal;
+  }
+
+  &__additional-nav {
+    margin-right: 80px;
+  }
+
+  &__additional-nav-item {
+    margin-bottom: 20px;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 11px;
+    color: #1F1E25;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  &__phones {
+    width: 431px;
+    display: flex;
+    justify-content: space-between;
+    margin-right: 80px;
+  }
+
+  &__phones-item {
+    box-sizing: border-box;
+    &:first-child {
+      position: relative;
+      padding-left: 29px;
+      width: 196px;
+      flex-shrink: 0;
+
+      &::before {
+        position: absolute;
+        content: url("../../assets/img/mobile-phone.svg");
+        width: 10px;
+        height: 16px;
+        left: 0;
+        top: 0;
+      }
+    }
+
+    &:last-child {
+      position: relative;
+      padding-left: 33px;
+      width: 155px;
+      flex-shrink: 0;
+
+      &::before {
+        position: absolute;
+        content: url("../../assets/img/stationary-phone.svg");
+        width: 16px;
+        height: 16px;
+        left: 0;
+        top: 0;
+      }
+    }
+  }
+
+  &__phones-link {
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 11px;
+    color: #1F1E25;
+    display: inline-block;
+    margin-bottom: 10px;
+  }
+
+  &__phones-desc {
+    font-size: 12px;
+    line-height: 13px;
+    color: #707C87;
+  }
+
+  &__socials {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  &__socials-item {
+    &:not(:last-child) {
+      margin-right: 15px;
+    }
+  }
+}

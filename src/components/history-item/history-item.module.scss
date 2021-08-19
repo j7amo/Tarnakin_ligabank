@@ -1,0 +1,45 @@
+.history {
+  font-size: 18px;
+  line-height: 13px;
+
+  &__item {
+    display: flex;
+    align-items: baseline;
+    margin-bottom: 28px;
+
+    &:nth-child(5n) {
+      margin-bottom: 0;
+    }
+
+    &:nth-child(1n + 6) {
+      justify-content: flex-end;
+    }
+  }
+
+  &__date {
+    margin-right: 40px;
+    line-height: 13px;
+  }
+
+  &__amounts {
+    display: flex;
+    align-items: center;
+    line-height: 13px;
+
+    &::after {
+      content: url("../../assets/img/arrow.svg");
+      vertical-align: middle;
+      margin-right: 13px;
+      order: 2;
+    }
+  }
+
+  &__have-amount {
+    margin-right: 13px;
+    order: 1;
+  }
+
+  &__want-amount {
+    order: 3;
+  }
+}
