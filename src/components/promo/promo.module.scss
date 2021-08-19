@@ -34,6 +34,8 @@
 
   &__link {
     display: block;
+    opacity: 1;
+    transition: opacity 0.3s;
     font-weight: 500;
     font-size: 18px;
     line-height: 13px;
@@ -41,6 +43,15 @@
     padding: 19px 36px 21px;
     background: #F6F7FF;
     border-radius: 4px;
+
+    &:hover {
+      opacity: 0.8;
+      transition: opacity 0.3s;
+    }
+
+    &:active {
+      opacity: 0.6;
+    }
   }
 
   &__img-col {

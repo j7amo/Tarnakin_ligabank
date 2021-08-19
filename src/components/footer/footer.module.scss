@@ -46,6 +46,20 @@
     }
   }
 
+  &__additional-nav-link {
+    opacity: 1;
+    transition: opacity 0.3s;
+
+    &:hover {
+      opacity: 0.6;
+      transition: opacity 0.3s;
+    }
+
+    &:active {
+      color: #2C36F2;
+    }
+  }
+
   &__phones {
     width: 431px;
     display: flex;
@@ -95,6 +109,17 @@
     color: #1F1E25;
     display: inline-block;
     margin-bottom: 7px;
+    opacity: 1;
+    transition: opacity 0.3s;
+
+    &:hover {
+      opacity: 0.6;
+      transition: opacity 0.3s;
+    }
+
+    &:active {
+      color: #2C36F2;
+    }
   }
 
   &__phones-desc {
@@ -111,6 +136,21 @@
   &__socials-item {
     &:not(:last-child) {
       margin-right: 15px;
+    }
+  }
+
+  &__socials-link {
+    opacity: 1;
+    transition: opacity 0.3s;
+
+    &:hover {
+      opacity: 0.6;
+      transition: opacity 0.3s;
+    }
+
+    &:active {
+      opacity: 0.3;
+      transition: opacity 0.3s;
     }
   }
 }

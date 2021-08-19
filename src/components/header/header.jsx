@@ -16,7 +16,7 @@ export default function Header() {
             <a className={styles[`site-navigation__link`]} href='/'>Рассчитать кредит</a>
           </li>
           <li className={styles[`site-navigation__item`]}>
-            <a className={styles[`site-navigation__link`]} href='/'>Конвертер валют</a>
+            <a className={`${styles[`site-navigation__link`]} ${styles[`site-navigation__link--active`]}`} href='/'>Конвертер валют</a>
           </li>
           <li className={styles[`site-navigation__item`]}>
             <a className={styles[`site-navigation__link`]} href='/'>Контакты</a>
