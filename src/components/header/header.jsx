@@ -10,24 +10,41 @@ export default function Header() {
         <Logo />
         <ul className={styles[`site-navigation`]}>
           <li className={styles[`site-navigation__item`]}>
-            <a className={styles[`site-navigation__link`]} href='/'>Услуги</a>
+            <a className={styles[`site-navigation__link`]} href="/">
+              Услуги
+            </a>
           </li>
           <li className={styles[`site-navigation__item`]}>
-            <a className={styles[`site-navigation__link`]} href='/'>Рассчитать кредит</a>
+            <a className={styles[`site-navigation__link`]} href="/">
+              Рассчитать кредит
+            </a>
           </li>
           <li className={styles[`site-navigation__item`]}>
-            <a className={`${styles[`site-navigation__link`]} ${styles[`site-navigation__link--active`]}`} href='/'>Конвертер валют</a>
+            <a
+              className={`${styles[`site-navigation__link`]} ${
+                styles[`site-navigation__link--active`]
+              }`}
+              href="/"
+            >
+              Конвертер валют
+            </a>
           </li>
           <li className={styles[`site-navigation__item`]}>
-            <a className={styles[`site-navigation__link`]} href='/'>Контакты</a>
+            <a className={styles[`site-navigation__link`]} href="/">
+              Контакты
+            </a>
           </li>
           <li className={styles[`site-navigation__item`]}>
-            <a className={styles[`site-navigation__link`]} href='/'>Задать вопрос</a>
+            <a className={styles[`site-navigation__link`]} href="/">
+              Задать вопрос
+            </a>
           </li>
         </ul>
         <ul className={styles[`user-navigation`]}>
           <li className={styles[`user-navigation__item`]}>
-            <a className={styles[`user-navigation__link`]} href='/'>Войти в Интернет-банк</a>
+            <a className={styles[`user-navigation__link`]} href="/">
+              Войти в Интернет-банк
+            </a>
           </li>
         </ul>
       </nav>

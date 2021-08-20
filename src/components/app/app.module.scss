@@ -1,3 +1,5 @@
+@import-normalize;
+
 @font-face {
   font-family: 'Roboto';
   font-style: normal;
@@ -16,8 +18,8 @@
   font-display: swap;
 
   src: local('Roboto'),
-  url('../../assets/fonts/Roboto-Medium.woff2') format('woff2'),
-  url('../../assets/fonts/Roboto-Medium.woff') format('woff');
+    url('../../assets/fonts/Roboto-Medium.woff2') format('woff2'),
+    url('../../assets/fonts/Roboto-Medium.woff') format('woff');
 }
 
 @font-face {
@@ -27,8 +29,8 @@
   font-display: swap;
 
   src: local('Roboto'),
-  url('../../assets/fonts/Roboto-Bold.woff2') format('woff2'),
-  url('../../assets/fonts/Roboto-Bold.woff') format('woff');
+    url('../../assets/fonts/Roboto-Bold.woff2') format('woff2'),
+    url('../../assets/fonts/Roboto-Bold.woff') format('woff');
 }
 
 body {
@@ -62,7 +64,12 @@ a {
   color: inherit;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   padding: 0;
   margin: 0;
 }

@@ -1,5 +1,5 @@
 .main-footer {
-  background: #F6F7FF;
+  background: #f6f7ff;
 
   &__inner {
     display: flex;
@@ -12,7 +12,7 @@
     font-weight: normal;
     font-size: 12px;
     line-height: 140%;
-    color: #707C87;
+    color: #707c87;
 
     a {
       margin-bottom: 6px;
@@ -39,7 +39,7 @@
     font-weight: 500;
     font-size: 16px;
     line-height: 11px;
-    color: #1F1E25;
+    color: #1f1e25;
 
     &:last-child {
       margin-bottom: 0;
@@ -56,7 +56,7 @@
     }
 
     &:active {
-      color: #2C36F2;
+      color: #2c36f2;
     }
   }
 
@@ -77,7 +77,7 @@
 
       &::before {
         position: absolute;
-        content: url("../../assets/img/mobile-phone.svg");
+        content: url('../../assets/img/mobile-phone.svg');
         width: 10px;
         height: 16px;
         left: 0;
@@ -93,7 +93,7 @@
 
       &::before {
         position: absolute;
-        content: url("../../assets/img/stationary-phone.svg");
+        content: url('../../assets/img/stationary-phone.svg');
         width: 16px;
         height: 16px;
         left: 0;
@@ -106,7 +106,7 @@
     font-weight: 500;
     font-size: 16px;
     line-height: 11px;
-    color: #1F1E25;
+    color: #1f1e25;
     display: inline-block;
     margin-bottom: 7px;
     opacity: 1;
@@ -118,14 +118,14 @@
     }
 
     &:active {
-      color: #2C36F2;
+      color: #2c36f2;
     }
   }
 
   &__phones-desc {
     font-size: 12px;
     line-height: 15px;
-    color: #707C87;
+    color: #707c87;
   }
 
   &__socials {

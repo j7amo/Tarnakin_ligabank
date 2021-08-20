@@ -1,5 +1,5 @@
 .main-header {
-  background: #F6F7FF;
+  background: #f6f7ff;
 }
 
 .nav {
@@ -30,7 +30,7 @@
     transition: opacity 0.3s;
 
     &--active {
-      color: #2C36F2;
+      color: #2c36f2;
     }
 
     &:hover {
@@ -39,7 +39,7 @@
     }
 
     &:active {
-      color: #2C36F2;
+      color: #2c36f2;
     }
   }
 }
@@ -71,14 +71,14 @@
     }
 
     &:active {
-      color: #2C36F2;
+      color: #2c36f2;
     }
 
     &::before {
       content: '';
       width: 20px;
       height: 22px;
-      background: url("../../assets/img/enter.svg");
+      background: url('../../assets/img/enter.svg');
       margin-right: 10px;
     }
   }

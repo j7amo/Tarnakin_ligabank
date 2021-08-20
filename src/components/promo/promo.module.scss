@@ -1,10 +1,12 @@
 .promo {
-  background: #2C36F2 linear-gradient(180.24deg, rgba(32, 39, 179, 0) 32.89%, #2027B3 99.79%) no-repeat;
+  background: #2c36f2
+    linear-gradient(180.24deg, rgba(32, 39, 179, 0) 32.89%, #2027b3 99.79%)
+    no-repeat;
 
   &__inner {
     display: flex;
     justify-content: flex-start;
-    background: url("../../assets/img/promo-background.jpg");
+    background: url('../../assets/img/promo-background.jpg');
   }
 
   &__text-col {
@@ -21,14 +23,14 @@
     font-weight: bold;
     font-size: 54px;
     line-height: 37px;
-    color: #F6F7FF;
+    color: #f6f7ff;
     margin-bottom: 25px;
   }
 
   &__lead {
     font-size: 22px;
     line-height: 16px;
-    color: #E0E1EA;
+    color: #e0e1ea;
     margin-bottom: 40px;
   }
 
@@ -39,9 +41,9 @@
     font-weight: 500;
     font-size: 18px;
     line-height: 13px;
-    color: #1F1E25;
+    color: #1f1e25;
     padding: 19px 36px 21px;
-    background: #F6F7FF;
+    background: #f6f7ff;
     border-radius: 4px;
 
     &:hover {
@@ -72,4 +74,3 @@
     }
   }
 }
-
