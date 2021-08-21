@@ -14,6 +14,7 @@ import {
   convertWantAmount,
   setHaveAmount,
   setHaveAmountCode,
+  setRatesRequestDate,
   setWantAmount,
   setWantAmountCode,
 } from '../../store/action';
@@ -76,26 +77,27 @@ function CurrencyConverter({
   haveCurrencyCode,
   wantAmount,
   wantCurrencyCode,
+  ratesRequestDate,
   onComponentRender,
   onHaveAmountChange,
   onWantAmountChange,
   onHaveCurrencyCodeChange,
   onWantCurrencyCodeChange,
+  onRatesRequestDateChange,
 }) {
   const [showCalendar, setShowCalendar] = useState(false);
-  const [date, setDate] = useState(dayjs());
 
   const handleCalendarIconClick = () => {
     setShowCalendar(true);
   };
 
   const handleCalendarDateClick = (value) => {
-    setDate(dayjs(value));
+    onRatesRequestDateChange(dayjs(value));
     setShowCalendar(false);
   };
 
   useEffect(() => {
-    onComponentRender();
+    onComponentRender(ratesRequestDate);
   }, []);
 
   return (
@@ -120,9 +122,9 @@ function CurrencyConverter({
                 <input
                   type="number"
                   id="have-currency-amount"
-                  value={haveAmount}
+                  value={haveAmount.toString()}
                   className={styles['converter__currency-field']}
-                  onChange={onHaveAmountChange}
+                  onInput={onHaveAmountChange}
                 />
                 <select
                   id="have-currency-type"
@@ -159,9 +161,9 @@ function CurrencyConverter({
                 <input
                   type="number"
                   id="want-currency-amount"
-                  value={wantAmount}
+                  value={wantAmount.toString()}
                   className={styles['converter__currency-field']}
-                  onChange={onWantAmountChange}
+                  onInput={onWantAmountChange}
                 />
                 <select
                   id="want-currency-type"
@@ -193,7 +195,7 @@ function CurrencyConverter({
               type="text"
               id="conversion-date"
               className={styles['converter__date']}
-              value={date.format('D.MM.YYYY')}
+              value={ratesRequestDate.format('D.MM.YYYY')}
             />
             <button
               type="button"
@@ -205,9 +207,9 @@ function CurrencyConverter({
                 <div className={styles['converter__calendar-content']}>
                   <Calendar
                     onChange={handleCalendarDateClick}
-                    value={date.toDate()}
-                    minDate={date.subtract(7, 'day').toDate()}
-                    maxDate={date.toDate()}
+                    value={ratesRequestDate.toDate()}
+                    minDate={dayjs().subtract(6, 'day').toDate()}
+                    maxDate={dayjs().toDate()}
                   />
                 </div>
               </div>
@@ -245,6 +247,7 @@ CurrencyConverter.propTypes = {
   onWantAmountChange: PropTypes.func,
   onHaveCurrencyCodeChange: PropTypes.func,
   onWantCurrencyCodeChange: PropTypes.func,
+  onRatesRequestDateChange: PropTypes.func,
 };
 
 const mapStateToProps = (state) => ({
@@ -252,11 +255,12 @@ const mapStateToProps = (state) => ({
   haveCurrencyCode: state.rates.haveCurrencyCode,
   wantAmount: state.rates.wantAmount,
   wantCurrencyCode: state.rates.wantCurrencyCode,
+  ratesRequestDate: state.rates.ratesRequestDate,
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  onComponentRender() {
-    dispatch(fetchRatesData());
+  onComponentRender(date) {
+    dispatch(fetchRatesData(date));
   },
   onHaveAmountChange(evt) {
     dispatch(setHaveAmount(Number(evt.target.value)));
@@ -273,6 +277,10 @@ const mapDispatchToProps = (dispatch) => ({
   onWantCurrencyCodeChange(evt) {
     dispatch(setWantAmountCode(evt.target.value));
     dispatch(convertWantAmount());
+  },
+  onRatesRequestDateChange(date) {
+    dispatch(setRatesRequestDate(date));
+    dispatch(fetchRatesData(date));
   },
 });
 

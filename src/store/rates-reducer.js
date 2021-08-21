@@ -1,11 +1,13 @@
 import { ActionType } from './action';
 import { CurrencyCode, RequestResult, RequestStatus } from '../const';
+import dayjs from 'dayjs';
 
 const initialState = {
   haveAmount: 1000,
   haveCurrencyCode: CurrencyCode.RUB,
   wantAmount: 13.1234,
   wantCurrencyCode: CurrencyCode.USD,
+  ratesRequestDate: dayjs(),
   ratesRequestStatus: RequestStatus.IDLE,
   ratesRequestResult: null,
   rates: {},
@@ -49,6 +51,11 @@ const ratesReducer = (state = initialState, action) => {
           state.wantAmount *
           (state.rates.data.quotes[`USD${state.haveCurrencyCode}`] /
             state.rates.data.quotes[`USD${state.wantCurrencyCode}`]),
+      };
+    case ActionType.SET_RATES_REQUEST_DATE:
+      return {
+        ...state,
+        ratesRequestDate: action.payload,
       };
     case ActionType.BEGIN_RATES_DATA_FETCH:
       return {

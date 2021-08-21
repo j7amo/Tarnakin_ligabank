@@ -5,6 +5,7 @@ export const ActionType = {
   SET_WANT_AMOUNT_CODE: 'data/wantAmountCodeSet',
   CONVERT_WANT_AMOUNT: 'data/wantAmountConverted',
   CONVERT_HAVE_AMOUNT: 'data/haveAmountConverted',
+  SET_RATES_REQUEST_DATE: 'data/ratesRequestDateSet',
   BEGIN_RATES_DATA_FETCH: 'data/ratesDataFetchBegan',
   SET_RATES_DATA: 'data/ratesDataSet',
   SET_RATES_FETCH_ERROR: 'data/ratesFetchErrorSet',
@@ -48,6 +49,13 @@ export function convertWantAmount() {
 export function convertHaveAmount() {
   return {
     type: ActionType.CONVERT_HAVE_AMOUNT,
+  };
+}
+
+export function setRatesRequestDate(date) {
+  return {
+    type: ActionType.SET_RATES_REQUEST_DATE,
+    payload: date,
   };
 }
 
