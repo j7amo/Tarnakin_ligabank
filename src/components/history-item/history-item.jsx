@@ -1,6 +1,7 @@
 import React from 'react';
 import styles from './history-item.module.scss';
 import dayjs from 'dayjs';
+import PropTypes from 'prop-types';
 
 export default function HistoryItem({
   ratesRequestDate,
@@ -9,11 +10,6 @@ export default function HistoryItem({
   wantAmount,
   wantCurrencyCode,
 }) {
-  console.log(ratesRequestDate);
-  console.log(haveAmount);
-  console.log(haveCurrencyCode);
-  console.log(wantAmount);
-  console.log(wantCurrencyCode);
 
   return (
     <li className={styles['history__item']}>
@@ -31,3 +27,11 @@ export default function HistoryItem({
     </li>
   );
 }
+
+HistoryItem.propTypes = {
+  ratesRequestDate: PropTypes.string,
+  haveAmount: PropTypes.number,
+  haveCurrencyCode: PropTypes.string,
+  wantAmount: PropTypes.number,
+  wantCurrencyCode: PropTypes.string,
+};

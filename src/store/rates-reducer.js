@@ -3,7 +3,7 @@ import {
   CurrencyCode,
   MAX_AMOUNT,
   RequestResult,
-  RequestStatus,
+  RequestStatus
 } from '../const';
 import dayjs from 'dayjs';
 import { round } from '../utils';
@@ -26,7 +26,7 @@ const ratesReducer = (state = initialState, action) => {
       return {
         ...state,
         haveAmount: round(
-          action.payload > MAX_AMOUNT ? MAX_AMOUNT : action.payload
+          action.payload > MAX_AMOUNT ? MAX_AMOUNT : action.payload,
         ),
       };
     case ActionType.SET_HAVE_AMOUNT_CODE:
@@ -38,7 +38,7 @@ const ratesReducer = (state = initialState, action) => {
       return {
         ...state,
         wantAmount: round(
-          action.payload > MAX_AMOUNT ? MAX_AMOUNT : action.payload
+          action.payload > MAX_AMOUNT ? MAX_AMOUNT : action.payload,
         ),
       };
     case ActionType.SET_WANT_AMOUNT_CODE:
@@ -52,7 +52,7 @@ const ratesReducer = (state = initialState, action) => {
         wantAmount: round(
           state.haveAmount *
             (state.rates.data.quotes[`USD${state.wantCurrencyCode}`] /
-              state.rates.data.quotes[`USD${state.haveCurrencyCode}`])
+              state.rates.data.quotes[`USD${state.haveCurrencyCode}`]),
         ),
       };
     case ActionType.CONVERT_HAVE_AMOUNT:
@@ -61,7 +61,7 @@ const ratesReducer = (state = initialState, action) => {
         haveAmount: round(
           state.wantAmount *
             (state.rates.data.quotes[`USD${state.haveCurrencyCode}`] /
-              state.rates.data.quotes[`USD${state.wantCurrencyCode}`])
+              state.rates.data.quotes[`USD${state.wantCurrencyCode}`]),
         ),
       };
     case ActionType.SET_RATES_REQUEST_DATE:

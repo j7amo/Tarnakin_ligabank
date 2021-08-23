@@ -1,3 +1,4 @@
+import React from 'react';
 import globalStyles from './app.module.scss';
 import Header from '../header/header.jsx';
 import Promo from '../promo/promo.jsx';

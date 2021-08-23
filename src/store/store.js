@@ -5,11 +5,9 @@ import { rootReducer } from './reducer';
 import thunk from 'redux-thunk';
 import { setRatesFetchError } from './action';
 
-const api = createApi(() => store.dispatch(setRatesFetchError('BAD APP ID')));
-
 const store = createStore(
   rootReducer,
-  composeWithDevTools(applyMiddleware(thunk.withExtraArgument(api)))
+  composeWithDevTools(applyMiddleware(thunk.withExtraArgument(createApi(() => store.dispatch(setRatesFetchError('BAD APP ID')))))),
 );
 
 export { store };

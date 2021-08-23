@@ -18,8 +18,9 @@ import {
   setHaveAmountCode,
   setRatesRequestDate,
   setWantAmount,
-  setWantAmountCode,
+  setWantAmountCode
 } from '../../store/action';
+import { nanoid } from 'nanoid';
 
 function CurrencyConverter({
   haveAmount,
@@ -205,8 +206,7 @@ function CurrencyConverter({
                 haveCurrencyCode,
                 wantAmount,
                 wantCurrencyCode,
-              })
-            }
+              })}
           >
             Сохранить результат
           </Button>
@@ -215,7 +215,7 @@ function CurrencyConverter({
           <h3 className={styles['history__title']}>История конвертации</h3>
           <ul className={styles['history__list']}>
             {history.map((entry) => (
-              <HistoryItem {...entry} />
+              <HistoryItem {...entry} key={nanoid()}/>
             ))}
           </ul>
           <Button modifier="button--narrow" onClick={onClearHistoryClick}>
@@ -287,7 +287,7 @@ const mapDispatchToProps = (dispatch) => ({
 
 const ConnectedCurrencyConverter = connect(
   mapStateToProps,
-  mapDispatchToProps
+  mapDispatchToProps,
 )(CurrencyConverter);
 
 export default ConnectedCurrencyConverter;
