@@ -3,8 +3,8 @@
 }
 
 .nav {
-  padding-top: 27px;
-  padding-bottom: 26px;
+  padding-top: 21px;
+  padding-bottom: 23px;
   display: flex;
   align-items: center;
 }
@@ -16,18 +16,22 @@
   width: 620px;
   margin-right: auto;
 
-  &__item {
-    margin-right: 25px;
+  .site-navigation__item {
+    margin-right: 15px;
+    padding: 5px;
 
     &:last-child {
       margin-right: 0;
     }
   }
 
-  &__link {
+  .site-navigation__link {
     display: block;
     opacity: 1;
     transition: opacity 0.3s;
+    overflow: hidden;
+    padding: 8px 0;
+    max-width: 300px;
 
     &--active {
       color: #2c36f2;
@@ -50,20 +54,20 @@
   flex-wrap: wrap;
   width: 203px;
 
-  &__item {
-    margin-right: 25px;
+  .user-navigation__item {
     display: flex;
-
-    &:last-child {
-      margin-right: 0;
-    }
+    padding: 5px 0;
   }
 
-  &__link {
+  .user-navigation__link {
     display: inline-flex;
     align-items: center;
     opacity: 1;
     transition: opacity 0.3s;
+    max-width: 203px;
+    overflow: hidden;
+    flex-shrink: 0;
+    padding: 8px 0;
 
     &:hover {
       opacity: 0.6;
@@ -80,6 +84,7 @@
       height: 22px;
       background: url('../../assets/img/enter.svg');
       margin-right: 10px;
+      flex-shrink: 0;
     }
   }
 }

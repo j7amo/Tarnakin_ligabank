@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import globalStyles from '../app/app.module.scss';
 import styles from './currency-converter.module.scss';
 import Button from '../button/button.jsx';
@@ -10,6 +10,8 @@ import PropTypes from 'prop-types';
 import { fetchRatesData } from '../../store/api-actions';
 import { currencyCodes } from '../../const';
 import {
+  addHistoryData,
+  clearHistoryData,
   convertHaveAmount,
   convertWantAmount,
   setHaveAmount,
@@ -19,73 +21,24 @@ import {
   setWantAmountCode,
 } from '../../store/action';
 
-const someArray = [
-  {
-    date: '25.11.2020',
-    haveAmount: '1000 RUB',
-    wantAmount: '13,1234 USD',
-  },
-  {
-    date: '25.11.2020',
-    haveAmount: '1000 RUB',
-    wantAmount: '13,1234 USD',
-  },
-  {
-    date: '25.11.2020',
-    haveAmount: '1000 RUB',
-    wantAmount: '13,1234 USD',
-  },
-  {
-    date: '25.11.2020',
-    haveAmount: '1000 RUB',
-    wantAmount: '13,1234 USD',
-  },
-  {
-    date: '25.11.2020',
-    haveAmount: '1000 RUB',
-    wantAmount: '13,1234 USD',
-  },
-  {
-    date: '25.11.2020',
-    haveAmount: '1000 RUB',
-    wantAmount: '13,1234 USD',
-  },
-  {
-    date: '25.11.2020',
-    haveAmount: '1000 RUB',
-    wantAmount: '13,1234 USD',
-  },
-  {
-    date: '25.11.2020',
-    haveAmount: '1000 RUB',
-    wantAmount: '13,1234 USD',
-  },
-  {
-    date: '25.11.2020',
-    haveAmount: '1000 RUB',
-    wantAmount: '13,1234 USD',
-  },
-  {
-    date: '25.11.2020',
-    haveAmount: '1000 RUB',
-    wantAmount: '13,1234 USD',
-  },
-];
-
 function CurrencyConverter({
   haveAmount,
   haveCurrencyCode,
   wantAmount,
   wantCurrencyCode,
   ratesRequestDate,
+  history,
   onComponentRender,
   onHaveAmountChange,
   onWantAmountChange,
   onHaveCurrencyCodeChange,
   onWantCurrencyCodeChange,
   onRatesRequestDateChange,
+  onSaveResultClick,
+  onClearHistoryClick,
 }) {
   const [showCalendar, setShowCalendar] = useState(false);
+  const calendarContainerRef = useRef();
 
   const handleCalendarIconClick = () => {
     setShowCalendar(true);
@@ -95,6 +48,25 @@ function CurrencyConverter({
     onRatesRequestDateChange(dayjs(value));
     setShowCalendar(false);
   };
+
+  const handleOutsideCalendarClick = (evt) => {
+    if (
+      evt.target !== calendarContainerRef.current ||
+      !calendarContainerRef.current.contains(evt.target)
+    ) {
+      setShowCalendar(false);
+    }
+  };
+
+  useEffect(() => {
+    if (showCalendar) {
+      window.addEventListener('click', handleOutsideCalendarClick);
+    }
+
+    return () => {
+      window.removeEventListener('click', handleOutsideCalendarClick);
+    };
+  }, [showCalendar]);
 
   useEffect(() => {
     onComponentRender(ratesRequestDate);
@@ -203,7 +175,10 @@ function CurrencyConverter({
               onClick={handleCalendarIconClick}
             />
             {showCalendar && (
-              <div className={styles['converter__calendar-container']}>
+              <div
+                className={styles['converter__calendar-container']}
+                ref={calendarContainerRef}
+              >
                 <div className={styles['converter__calendar-content']}>
                   <Calendar
                     onChange={handleCalendarDateClick}
@@ -221,16 +196,31 @@ function CurrencyConverter({
               Выбрать дату
             </label>
           </div>
-          <Button modifier="button--wide">Сохранить результат</Button>
+          <Button
+            modifier="button--wide"
+            onClick={() =>
+              onSaveResultClick({
+                ratesRequestDate,
+                haveAmount,
+                haveCurrencyCode,
+                wantAmount,
+                wantCurrencyCode,
+              })
+            }
+          >
+            Сохранить результат
+          </Button>
         </form>
         <div className={`${styles['converter__history']} ${styles['history']}`}>
           <h3 className={styles['history__title']}>История конвертации</h3>
           <ul className={styles['history__list']}>
-            {someArray.map((entry) => (
+            {history.map((entry) => (
               <HistoryItem {...entry} />
             ))}
           </ul>
-          <Button modifier="button--narrow">Очистить историю</Button>
+          <Button modifier="button--narrow" onClick={onClearHistoryClick}>
+            Очистить историю
+          </Button>
         </div>
       </div>
     </section>
@@ -242,12 +232,16 @@ CurrencyConverter.propTypes = {
   haveCurrencyCode: PropTypes.string,
   wantAmount: PropTypes.number,
   wantCurrencyCode: PropTypes.string,
+  ratesRequestDate: PropTypes.string,
+  history: PropTypes.array,
   onComponentRender: PropTypes.func,
   onHaveAmountChange: PropTypes.func,
   onWantAmountChange: PropTypes.func,
   onHaveCurrencyCodeChange: PropTypes.func,
   onWantCurrencyCodeChange: PropTypes.func,
   onRatesRequestDateChange: PropTypes.func,
+  onSaveResultClick: PropTypes.func,
+  onClearHistoryClick: PropTypes.func,
 };
 
 const mapStateToProps = (state) => ({
@@ -256,6 +250,7 @@ const mapStateToProps = (state) => ({
   wantAmount: state.rates.wantAmount,
   wantCurrencyCode: state.rates.wantCurrencyCode,
   ratesRequestDate: state.rates.ratesRequestDate,
+  history: state.history.history,
 });
 
 const mapDispatchToProps = (dispatch) => ({
@@ -281,6 +276,12 @@ const mapDispatchToProps = (dispatch) => ({
   onRatesRequestDateChange(date) {
     dispatch(setRatesRequestDate(date));
     dispatch(fetchRatesData(date));
+  },
+  onSaveResultClick(data) {
+    dispatch(addHistoryData(data));
+  },
+  onClearHistoryClick() {
+    dispatch(clearHistoryData());
   },
 });
 

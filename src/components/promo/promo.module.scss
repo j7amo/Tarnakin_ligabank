@@ -3,15 +3,16 @@
     linear-gradient(180.24deg, rgba(32, 39, 179, 0) 32.89%, #2027b3 99.79%)
     no-repeat;
 
-  &__inner {
+  .promo__inner {
     display: flex;
     justify-content: flex-start;
-    background: url('../../assets/img/promo-background.jpg');
+    background: url('../../assets/img/promo-background.jpg') no-repeat;
+    background-size: cover;
   }
 
-  &__text-col {
+  .promo__text-col {
     width: 580px;
-    padding-top: 115px;
+    padding-top: 98px;
     padding-left: 170px;
     padding-bottom: 114px;
     display: flex;
@@ -19,32 +20,41 @@
     align-items: flex-start;
   }
 
-  &__title {
+  .promo__title {
     font-weight: bold;
     font-size: 54px;
-    line-height: 37px;
+    line-height: 120%;
     color: #f6f7ff;
-    margin-bottom: 25px;
+    margin-bottom: 1px;
+    padding: 3px 0;
+    overflow: hidden;
+    max-width: 410px;
   }
 
-  &__lead {
+  .promo__lead {
     font-size: 22px;
-    line-height: 16px;
+    line-height: 120%;
     color: #e0e1ea;
-    margin-bottom: 40px;
+    margin-bottom: 31px;
+    padding: 3px 0;
+    overflow: hidden;
+    max-width: 410px;
   }
 
-  &__link {
+  .promo__link {
     display: block;
     opacity: 1;
     transition: opacity 0.3s;
     font-weight: 500;
     font-size: 18px;
-    line-height: 13px;
+    line-height: 120%;
     color: #1f1e25;
-    padding: 19px 36px 21px;
+    padding: 15px 36px 17px;
     background: #f6f7ff;
     border-radius: 4px;
+    max-width: 234px;
+    overflow: hidden;
+    box-sizing: border-box;
 
     &:hover {
       opacity: 0.8;
@@ -56,7 +66,7 @@
     }
   }
 
-  &__img-col {
+  .promo__img-col {
     width: 590px;
     position: relative;
     flex-shrink: 0;

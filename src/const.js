@@ -8,8 +8,6 @@ export const RequestResult = {
   FAILED: 'failed',
 };
 
-export const APP_ID = 'e7a0a446771c4d30a0167ae79a88cd2b';
-
 export const CurrencyCode = {
   RUB: 'RUB',
   USD: 'USD',
@@ -19,3 +17,5 @@ export const CurrencyCode = {
 };
 
 export const currencyCodes = Object.values(CurrencyCode);
+
+export const MAX_AMOUNT = 1000000000;

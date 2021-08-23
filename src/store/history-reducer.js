@@ -12,13 +12,22 @@ const historyReducer = (state = initialState, action) => {
       if (state.history.length < HISTORY_MAX_ENTRIES) {
         return {
           ...state,
-          history: [...state.history, action.payload],
+          history: [action.payload, ...state.history],
         };
       } else {
-        return state.history
-          .slice(0, HISTORY_MAX_ENTRIES)
-          .unshift(action.payload);
+        return {
+          ...state,
+          history: [
+            action.payload,
+            ...state.history.slice(0, HISTORY_MAX_ENTRIES - 1),
+          ],
+        };
       }
+    case ActionType.CLEAR_HISTORY_DATA:
+      return {
+        ...state,
+        history: [],
+      };
     default:
       return state;
   }

@@ -7,8 +7,11 @@
   color: #f6f7ff;
   font-family: 'Roboto', sans-serif;
   font-weight: 500;
-  line-height: 10px;
+  line-height: 120%;
   cursor: pointer;
+  overflow: hidden;
+  padding: 0 15px;
+  box-sizing: border-box;
 
   &:hover {
     opacity: 0.8;
@@ -24,16 +27,18 @@
   }
 
   &--narrow {
-    width: 186px;
-    padding-top: 22px;
-    padding-bottom: 20px;
+    width: 197px;
+    max-width: 197px;
+    padding-top: 16px;
+    padding-bottom: 16px;
     font-size: 16px;
   }
 
   &--wide {
-    width: 370px;
-    padding-top: 25px;
-    padding-bottom: 24px;
+    width: 382px;
+    max-width: 382px;
+    padding-top: 20px;
+    padding-bottom: 19px;
     font-size: 18px;
   }
 }

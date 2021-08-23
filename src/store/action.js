@@ -10,6 +10,7 @@ export const ActionType = {
   SET_RATES_DATA: 'data/ratesDataSet',
   SET_RATES_FETCH_ERROR: 'data/ratesFetchErrorSet',
   ADD_HISTORY_DATA: 'data/historyDataAdded',
+  CLEAR_HISTORY_DATA: 'data/historyDataCleared',
 };
 
 export function setHaveAmount(amount) {
@@ -83,5 +84,11 @@ export function addHistoryData(data) {
   return {
     type: ActionType.ADD_HISTORY_DATA,
     payload: data,
+  };
+}
+
+export function clearHistoryData() {
+  return {
+    type: ActionType.CLEAR_HISTORY_DATA,
   };
 }

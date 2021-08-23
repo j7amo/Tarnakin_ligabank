@@ -1,9 +1,13 @@
 .logo {
+  box-sizing: border-box;
   display: block;
-  margin-right: 58px;
+  width: 150px;
+  height: 38px;
+  margin-right: 52px;
   padding-bottom: 7px;
   opacity: 1;
   transition: opacity 0.3s;
+  flex-shrink: 0;
 
   &:hover {
     opacity: 0.6;

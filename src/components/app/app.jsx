@@ -14,8 +14,8 @@ function App() {
         </h1>
         <Promo />
         <CurrencyConverter />
-        <Footer />
       </main>
+      <Footer />
     </>
   );
 }

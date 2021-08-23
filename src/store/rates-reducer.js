@@ -1,6 +1,12 @@
 import { ActionType } from './action';
-import { CurrencyCode, RequestResult, RequestStatus } from '../const';
+import {
+  CurrencyCode,
+  MAX_AMOUNT,
+  RequestResult,
+  RequestStatus,
+} from '../const';
 import dayjs from 'dayjs';
+import { round } from '../utils';
 
 const initialState = {
   haveAmount: 1000,
@@ -19,7 +25,9 @@ const ratesReducer = (state = initialState, action) => {
     case ActionType.SET_HAVE_AMOUNT:
       return {
         ...state,
-        haveAmount: action.payload,
+        haveAmount: round(
+          action.payload > MAX_AMOUNT ? MAX_AMOUNT : action.payload
+        ),
       };
     case ActionType.SET_HAVE_AMOUNT_CODE:
       return {
@@ -29,7 +37,9 @@ const ratesReducer = (state = initialState, action) => {
     case ActionType.SET_WANT_AMOUNT:
       return {
         ...state,
-        wantAmount: action.payload,
+        wantAmount: round(
+          action.payload > MAX_AMOUNT ? MAX_AMOUNT : action.payload
+        ),
       };
     case ActionType.SET_WANT_AMOUNT_CODE:
       return {
@@ -39,18 +49,20 @@ const ratesReducer = (state = initialState, action) => {
     case ActionType.CONVERT_WANT_AMOUNT:
       return {
         ...state,
-        wantAmount:
+        wantAmount: round(
           state.haveAmount *
-          (state.rates.data.quotes[`USD${state.wantCurrencyCode}`] /
-            state.rates.data.quotes[`USD${state.haveCurrencyCode}`]),
+            (state.rates.data.quotes[`USD${state.wantCurrencyCode}`] /
+              state.rates.data.quotes[`USD${state.haveCurrencyCode}`])
+        ),
       };
     case ActionType.CONVERT_HAVE_AMOUNT:
       return {
         ...state,
-        haveAmount:
+        haveAmount: round(
           state.wantAmount *
-          (state.rates.data.quotes[`USD${state.haveCurrencyCode}`] /
-            state.rates.data.quotes[`USD${state.wantCurrencyCode}`]),
+            (state.rates.data.quotes[`USD${state.haveCurrencyCode}`] /
+              state.rates.data.quotes[`USD${state.wantCurrencyCode}`])
+        ),
       };
     case ActionType.SET_RATES_REQUEST_DATE:
       return {

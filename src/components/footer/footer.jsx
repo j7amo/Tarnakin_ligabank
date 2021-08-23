@@ -57,27 +57,35 @@ export default function Footer() {
             </li>
           </ul>
           <ul className={styles['main-footer__phones']}>
-            <li className={styles['main-footer__phones-item']}>
-              <a
-                className={styles['main-footer__phones-link']}
-                href="tel:*0904"
-              >
-                *0904
-              </a>
-              <p className={styles['main-footer__phones-desc']}>
-                Бесплатно для абонентов МТС, Билайн, Мегафон, Теле2
-              </p>
+            <li
+              className={`${styles['main-footer__phones-item']} ${styles['phone']} ${styles['phone--mobile']}`}
+            >
+              <div className={styles['main-footer__text-wrapper']}>
+                <a
+                  className={styles['main-footer__phones-link']}
+                  href="tel:*0904"
+                >
+                  *0904
+                </a>
+                <p className={styles['main-footer__phones-desc']}>
+                  Бесплатно для абонентов МТС, Билайн, Мегафон, Теле2
+                </p>
+              </div>
             </li>
-            <li className={styles['main-footer__phones-item']}>
-              <a
-                className={styles['main-footer__phones-link']}
-                href="tel:88001112233"
-              >
-                8 800 111 22 33
-              </a>
-              <p className={styles['main-footer__phones-desc']}>
-                Бесплатный для всех городов России
-              </p>
+            <li
+              className={`${styles['main-footer__phones-item']} ${styles['phone']} ${styles['phone--stationary']}`}
+            >
+              <div className={styles['main-footer__text-wrapper']}>
+                <a
+                  className={styles['main-footer__phones-link']}
+                  href="tel:88001112233"
+                >
+                  8 800 111 22 33
+                </a>
+                <p className={styles['main-footer__phones-desc']}>
+                  Бесплатный для всех городов России
+                </p>
+              </div>
             </li>
           </ul>
           <ul className={styles['main-footer__socials']}>

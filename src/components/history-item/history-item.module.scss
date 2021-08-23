@@ -1,48 +1,46 @@
 .history {
   font-size: 18px;
   line-height: 13px;
+}
 
-  &__item {
-    font-size: 18px;
-    line-height: 13px;
-    display: flex;
-    align-items: baseline;
-    margin-bottom: 26px;
+.history__item {
+  font-size: 18px;
+  line-height: 13px;
+  display: flex;
+  align-items: baseline;
+  padding-bottom: 26px;
 
-    &:nth-child(5n) {
-      margin-bottom: 0;
-    }
-
-    &:nth-child(1n + 6) {
-      justify-content: flex-end;
-    }
+  &:nth-child(1n + 6) {
+    justify-content: flex-end;
   }
+}
 
-  &__date {
-    margin-right: 40px;
-    line-height: 13px;
-  }
+.history__date {
+  margin-right: 40px;
+  line-height: 13px;
+}
 
-  &__amounts {
-    display: flex;
-    align-items: center;
-    line-height: 13px;
+.history__amounts {
+  display: flex;
+  align-items: center;
+  line-height: 13px;
 
-    &::after {
-      content: url('../../assets/img/arrow.svg');
-      vertical-align: middle;
-      margin-right: 13px;
-      padding-top: 2px;
-      order: 2;
-    }
-  }
-
-  &__have-amount {
+  &::after {
+    content: url('../../assets/img/arrow.svg');
+    vertical-align: middle;
     margin-right: 13px;
-    order: 1;
+    padding-top: 2px;
+    order: 2;
   }
+}
 
-  &__want-amount {
-    order: 3;
-  }
+.history__have-amount {
+  margin-right: 13px;
+  order: 1;
+  overflow-wrap: anywhere;
+}
+
+.history__want-amount {
+  order: 3;
+  overflow-wrap: anywhere;
 }
