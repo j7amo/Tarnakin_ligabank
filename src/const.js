@@ -19,3 +19,5 @@ export const CurrencyCode = {
 export const currencyCodes = Object.values(CurrencyCode);
 
 export const MAX_AMOUNT = 1000000000;
+
+export const HISTORY_LIMIT = 6;

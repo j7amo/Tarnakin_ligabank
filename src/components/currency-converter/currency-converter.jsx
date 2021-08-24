@@ -8,7 +8,7 @@ import dayjs from 'dayjs';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { fetchRatesData } from '../../store/api-actions';
-import { currencyCodes } from '../../const';
+import { currencyCodes, HISTORY_LIMIT } from '../../const';
 import {
   addHistoryData,
   clearHistoryData,
@@ -21,6 +21,13 @@ import {
   setWantAmountCode
 } from '../../store/action';
 import { nanoid } from 'nanoid';
+import {
+  getHaveAmount,
+  getHaveCurrencyCode, getHistory,
+  getRatesRequestDate,
+  getWantAmount,
+  getWantCurrencyCode
+} from '../../store/selectors';
 
 function CurrencyConverter({
   haveAmount,
@@ -184,7 +191,7 @@ function CurrencyConverter({
                   <Calendar
                     onChange={handleCalendarDateClick}
                     value={ratesRequestDate.toDate()}
-                    minDate={dayjs().subtract(6, 'day').toDate()}
+                    minDate={dayjs().subtract(HISTORY_LIMIT, 'day').toDate()}
                     maxDate={dayjs().toDate()}
                   />
                 </div>
@@ -245,12 +252,12 @@ CurrencyConverter.propTypes = {
 };
 
 const mapStateToProps = (state) => ({
-  haveAmount: state.rates.haveAmount,
-  haveCurrencyCode: state.rates.haveCurrencyCode,
-  wantAmount: state.rates.wantAmount,
-  wantCurrencyCode: state.rates.wantCurrencyCode,
-  ratesRequestDate: state.rates.ratesRequestDate,
-  history: state.history.history,
+  haveAmount: getHaveAmount(state),
+  haveCurrencyCode: getHaveCurrencyCode(state),
+  wantAmount: getWantAmount(state),
+  wantCurrencyCode: getWantCurrencyCode(state),
+  ratesRequestDate: getRatesRequestDate(state),
+  history: getHistory(state),
 });
 
 const mapDispatchToProps = (dispatch) => ({
